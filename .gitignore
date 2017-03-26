@@ -1,9 +1,11 @@
 # DCGAN-tf
-DCGAN.ipynb
+# just for playing around
+DCGAN.ipynb  
 checkpoints/
 logs/
 samples/
-data  # soft link to my data directory
+# soft link to my data directory
+data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
