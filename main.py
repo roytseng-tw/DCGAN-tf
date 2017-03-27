@@ -116,11 +116,11 @@ def train():
     image_paths = get_image_paths(F.dataset_dir, F.input_fname_pattern)
 
     if F.training_strategy == 1:
-        # Make training data size divisible by (batch_size * d_step)
+        # Make training data size divisible by (batch_size * (d_step + g_step))
         if F.train_size is np.inf:
             F.train_size = len(image_paths)
         n_batch = F.train_size // F.batch_size
-        F.train_size = (n_batch // F.d_step) * F.d_step * F.batch_size
+        F.train_size = (n_batch // (F.d_step + F.g_step)) * (F.d_step + F.g_step) * F.batch_size
         if F.train_size != len(image_paths):
             image_paths = random.sample(image_paths, F.train_size)
     elif F.training_strategy == 2:
